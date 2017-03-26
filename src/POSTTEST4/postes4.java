@@ -43,16 +43,16 @@ public class postes4 extends javax.swing.JFrame {
         berat = new javax.swing.JTextField();
         panel = new javax.swing.JPanel();
         diskon = new javax.swing.JLabel();
-        aturan = new javax.swing.JSlider();
         jasa = new javax.swing.JLabel();
         r1 = new javax.swing.JRadioButton();
         e1 = new javax.swing.JRadioButton();
         persen = new javax.swing.JLabel();
+        k = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        aturan = new javax.swing.JSlider();
         proses = new javax.swing.JButton();
         ulang = new javax.swing.JButton();
         keluar = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        k = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -175,23 +175,13 @@ public class postes4 extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(kg)
                     .addComponent(berat, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         panel.setBackground(new java.awt.Color(0, 255, 204));
 
         diskon.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         diskon.setText("ATURAN DISKON");
-
-        aturan.setMajorTickSpacing(10);
-        aturan.setPaintLabels(true);
-        aturan.setPaintTicks(true);
-        aturan.setValue(0);
-        aturan.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                aturanStateChanged(evt);
-            }
-        });
 
         jasa.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jasa.setText("JENIS JASA");
@@ -204,6 +194,25 @@ public class postes4 extends javax.swing.JFrame {
 
         persen.setText("0%");
 
+        k.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel5.setText("Total Harga");
+
+        aturan.setMajorTickSpacing(10);
+        aturan.setPaintLabels(true);
+        aturan.setPaintTicks(true);
+        aturan.setValue(0);
+        aturan.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                aturanStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
         panelLayout.setHorizontalGroup(
@@ -212,40 +221,47 @@ public class postes4 extends javax.swing.JFrame {
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(aturan, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(persen))
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(diskon)
                             .addGroup(panelLayout.createSequentialGroup()
-                                .addComponent(r1)
+                                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(r1)
+                                    .addComponent(jLabel5))
                                 .addGap(30, 30, 30)
-                                .addComponent(e1))))
+                                .addComponent(e1))
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addComponent(aturan, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(persen))
+                            .addComponent(diskon)))
                     .addGroup(panelLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(jasa)))
-                .addContainerGap(72, Short.MAX_VALUE))
+                        .addComponent(jasa))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(k, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(diskon)
+                .addGap(29, 29, 29)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(aturan, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(aturan, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
+                        .addGap(15, 15, 15)
                         .addComponent(persen)))
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addComponent(jasa)
                 .addGap(18, 18, 18)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(r1)
                     .addComponent(e1))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(k, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -294,10 +310,6 @@ public class postes4 extends javax.swing.JFrame {
             }
         });
 
-        k.setColumns(20);
-        k.setRows(5);
-        jScrollPane2.setViewportView(k);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -307,20 +319,17 @@ public class postes4 extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(proses)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ulang)
-                                .addGap(325, 325, 325)
-                                .addComponent(keluar))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(proses)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ulang)
+                        .addGap(325, 325, 325)
+                        .addComponent(keluar)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -329,9 +338,7 @@ public class postes4 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(keluar)
@@ -339,7 +346,7 @@ public class postes4 extends javax.swing.JFrame {
                     .addComponent(proses)))
         );
 
-        setSize(new java.awt.Dimension(629, 483));
+        setSize(new java.awt.Dimension(634, 393));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -386,12 +393,7 @@ public class postes4 extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null,"Berat Tidak Boleh o dan pilih jasa","Konfirmasi",JOptionPane.INFORMATION_MESSAGE);     
        }
        else{
-           k.setText("nama\t\t:\t "+nama1+"\n"+
-                   "no\t\t: \t"+no1+"\n"+
-                   "berat\t\t:\t"+berat1+"\n"+
-                   "aturan\t\t:\t"+aturan1+"%"+"\n"+
-                   "total\t\t:\t"+total1+"\n"+
-                   "jasa : "+js);
+           k.setText("total :"+total1);                   
        }
     }//GEN-LAST:event_prosesActionPerformed
 
@@ -485,6 +487,10 @@ public class postes4 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_keluarMouseReleased
 
+    private void kActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_kActionPerformed
+
     private void aturanStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_aturanStateChanged
         // TODO add your handling code here:
         persen.setText(String.valueOf(aturan.getValue())+"%");
@@ -536,11 +542,11 @@ public class postes4 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel jasa;
-    private javax.swing.JTextArea k;
+    private javax.swing.JTextField k;
     private javax.swing.JButton keluar;
     private javax.swing.JLabel kg;
     private javax.swing.JTextField nama;
